@@ -124,7 +124,7 @@ const helloPromise = () => {
                 resolve('Hello!');
             }, 200);
         } else {
-            reject('Ouch!!');
+            reject('Ouch1!!');
         }
     });
 };
@@ -136,7 +136,7 @@ const goodbyePromise = () => {
                 resolve('Goodbye!');
             }, 3000);
         } else {
-            reject('Ouch!!');
+            reject('Ouch2!!');
         }
     });
 };
@@ -144,6 +144,6 @@ const goodbyePromise = () => {
 //ejecuta las dos promesas
 Promise.all([helloPromise(), goodbyePromise()])
 .then(response=> console.log('Respuesta es:', response))//cuando tiene las dos ejecutadas nos muestra el resultado
-.catch(error=>{
+.catch(error=>{// si falla una promesa se considera que fallan todas
     console.log('Se ha producido un error', error);
 });
