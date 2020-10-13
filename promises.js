@@ -122,7 +122,7 @@ const helloPromise = () => {
         if (true) {
             setTimeout(() => {
                 resolve('Hello!');
-            }, 200);
+            }, 3000);
         } else {
             reject('Ouch1!!');
         }
@@ -134,7 +134,7 @@ const goodbyePromise = () => {
         if (true) {
             setTimeout(() => {
                 resolve('Goodbye!');
-            }, 3000);
+            }, 1000);
         } else {
             reject('Ouch2!!');
         }
@@ -142,8 +142,16 @@ const goodbyePromise = () => {
 };
 
 //ejecuta las dos promesas
-Promise.all([helloPromise(), goodbyePromise()])
-.then(response=> console.log('Respuesta es:', response))//cuando tiene las dos ejecutadas nos muestra el resultado
-.catch(error=>{// si falla una promesa se considera que fallan todas
-    console.log('Se ha producido un error', error);
+// Promise.all([helloPromise(), goodbyePromise()])
+// .then(response=> console.log('Respuesta es:', response))//cuando tiene las dos ejecutadas nos muestra el resultado
+// .catch(error=>{// si falla una promesa se considera que fallan todas
+//     console.log('Se ha producido un error', error);
+// });
+
+Promise.race([helloPromise(), goodbyePromise()])
+.then(response =>{
+    console.log('La respuesta mas rápida es', response);//coge la primera que llega
+})
+.catch(error=>{
+    console.log('error:', error);
 });
