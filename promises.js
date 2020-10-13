@@ -1,7 +1,7 @@
 const helloPromise = () => {
     return new Promise((resolve, reject) => {
         if (true) {
-            setTimeout(()=>{
+            setTimeout(() => {
                 resolve('Hello!');
             }, 3000);
             // resolve('Hello!');
@@ -11,5 +11,10 @@ const helloPromise = () => {
     });
 };
 
-const result = helloPromise();
-console.log('result', result);
+// const result = helloPromise();
+// console.log('result', result);
+
+helloPromise()
+    .then(response=>{
+        console.log(response);
+    });
