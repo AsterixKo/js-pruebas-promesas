@@ -1,8 +1,10 @@
+console.log('Iniciando proceso de subida');
+
 const helloPromise = () => {
     return new Promise((resolve, reject) => {
         if (true) {
             setTimeout(() => {
-                resolve('Hello!');
+                resolve('Foto subida!');
             }, 3000);
             // resolve('Hello!');
         } else {
