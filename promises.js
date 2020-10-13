@@ -108,6 +108,9 @@ photoUpload().then(response => {
     })
     .catch(error => {
         console.log('Se ha producido un error', error);
+    })
+    .finally(()=>{
+        console.log('Se ha ejecutado el FINALLY');
     });
 
 console.log('Fin del proceso');
