@@ -150,7 +150,7 @@ const goodbyePromise = () => {
 
 Promise.race([helloPromise(), goodbyePromise()])
 .then(response =>{
-    console.log('La respuesta mas rápida es', response);//coge la primera que llega
+    console.log('La respuesta mas rápida es', response);//coge la primera que llega independientemente de si falla o se ejecuta bien
 })
 .catch(error=>{
     console.log('error:', error);
