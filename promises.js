@@ -2,9 +2,13 @@ console.log('Iniciando proceso de subida');
 
 const photoUpload = () => {
     return new Promise((resolve, reject) => {
-        if (!true) {
+        if (true) {
             setTimeout(() => {
-                resolve('Foto subida!');
+                const serverResponse = {
+                    status: 200,
+                    message: 'Todo guay'
+                };
+                resolve(serverResponse);
             }, 3000);
             // resolve('Hello!');
         } else {
@@ -23,6 +27,10 @@ const photoUpload = () => {
 photoUpload()
     .then(response => {
         console.log(response);
+        return response.message.toUpperCase();
+    })
+    .then(res => {
+        console.log('Este es mi segundo .then', res);
     })
     .catch(error => {
         console.log('Se ha producido un error', error);
